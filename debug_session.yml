@@ -10,5 +10,5 @@ windows:
   - debugging:
       layout: even-vertical
       panes:
-        - echo "Run the receiver here !"
-        - echo "Run the sender here !"
+        - /home/student/238362_tm/mpc-rbt-student/build/run_receiver.sh	
+        - /home/student/238362_tm/mpc-rbt-student/build/run_sender.sh
