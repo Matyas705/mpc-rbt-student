@@ -1,7 +1,7 @@
 name: "communication_example"
 root: <%= @settings["working_directory"]%>
 
-on_project_start: echo "Build the programs here !"
+on_project_start: /home/student/238362_tm/mpc-rbt-student/build.sh
 pre_window:
   - source /opt/ros/humble/setup.bash
 

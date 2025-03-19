@@ -3,7 +3,7 @@
     "localPort": 11000,
     "remotePort": 12000,
     "remoteAddress": "127.0.0.1",
-    "sendingPeriodMillis": 50
+    "sendingPeriodMillis": 500
   },
   "receiver": {
     "localPort": 12000
