@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-5859fb5a3a6b46e091c6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "mpc_rbt_student",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "keyboard_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-keyboard_control-9f9358e07f98ab403df7.json",
+					"name" : "keyboard_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mpc_rbt_student::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mpc_rbt_student-a4bc8114eb5d2f922011.json",
+					"name" : "mpc_rbt_student",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mpc_rbt_student_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mpc_rbt_student_uninstall-e34ad316bdfb3de4251a.json",
+					"name" : "mpc_rbt_student_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-1c5a54cff6134eb56c73.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/student/238362_tm/build/mpc_rbt_student",
+		"source" : "/home/student/238362_tm/src/mpc-rbt-student"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

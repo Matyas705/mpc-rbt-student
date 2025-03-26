@@ -1,0 +1,32 @@
+[35m[1mConsolidate compiler generated dependencies of target mpc_rbt_student[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/mpc_rbt_student.dir/src/KeyboardControl.cpp.o[0m
+[ 50%] [32m[1mLinking CXX shared library libmpc_rbt_student.so[0m
+[ 50%] Built target mpc_rbt_student
+[ 75%] [32mBuilding CXX object CMakeFiles/keyboard_control.dir/src/keyboard_control_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable keyboard_control[0m
+[100%] Built target keyboard_control
+-- Install configuration: ""
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/lib/libmpc_rbt_student.so
+-- Set runtime path of "/home/student/238362_tm/install/mpc_rbt_student/lib/libmpc_rbt_student.so" to ""
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/lib/mpc_rbt_student/keyboard_control
+-- Set runtime path of "/home/student/238362_tm/install/mpc_rbt_student/lib/mpc_rbt_student/keyboard_control" to ""
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/environment/library_path.sh
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/environment/library_path.dsv
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/ament_index/resource_index/package_run_dependencies/mpc_rbt_student
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/ament_index/resource_index/parent_prefix_path/mpc_rbt_student
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/environment/ament_prefix_path.sh
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/environment/ament_prefix_path.dsv
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/environment/path.sh
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/environment/path.dsv
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/local_setup.bash
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/local_setup.sh
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/local_setup.zsh
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/local_setup.dsv
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/package.dsv
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/ament_index/resource_index/packages/mpc_rbt_student
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/cmake/mpc_rbt_studentConfig.cmake
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/cmake/mpc_rbt_studentConfig-version.cmake
+-- Installing: /home/student/238362_tm/install/mpc_rbt_student/share/mpc_rbt_student/package.xml

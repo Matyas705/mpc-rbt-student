@@ -1,0 +1,2 @@
+Invoking command in '/home/student/238362_tm/build/mpc_rbt_student': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/238362_tm/build/mpc_rbt_student -- -j8 -l8
+Invoked command in '/home/student/238362_tm/build/mpc_rbt_student' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/238362_tm/build/mpc_rbt_student -- -j8 -l8

@@ -1,0 +1,21 @@
+In file included from [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:8[m[K:
+[01m[K/home/student/238362_tm/src/mpc-rbt-student/src/../include/KeyboardControl.hpp:22:5:[m[K [01;31m[Kerror: [m[K‘[01m[Krclcpp[m[K’ does not name a type
+   22 |     [01;31m[Krclcpp[m[K:Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_publisher_;
+      |     [01;31m[K^~~~~~[m[K
+[01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:[m[K In constructor ‘[01m[KKeyboardControlNode::KeyboardControlNode()[m[K’:
+[01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:15:3:[m[K [01;31m[Kerror: [m[K‘[01m[Ktwist_publisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Kcount_publishers[m[K’?
+   15 |   [01;31m[Ktwist_publisher_[m[K = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 1);
+      |   [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |   [32m[Kcount_publishers[m[K
+[01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:23:3:[m[K [01;31m[Kerror: [m[K‘[01m[Ktcsetsttr[m[K’ was not declared in this scope; did you mean ‘[01m[Ktcsetattr[m[K’?
+   23 |   [01;31m[Ktcsetsttr[m[K(STDIN_FILENO, TCSANOW, &new_termios);
+      |   [01;31m[K^~~~~~~~~[m[K
+      |   [32m[Ktcsetattr[m[K
+[01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:[m[K In member function ‘[01m[Kvoid KeyboardControlNode::timerCallback()[m[K’:
+[01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:75:15:[m[K [01;31m[Kerror: [m[K‘[01m[Ktwist_publisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Kcount_publishers[m[K’?
+   75 |               [01;31m[Ktwist_publisher_[m[K->publish(twist);
+      |               [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |               [32m[Kcount_publishers[m[K
+gmake[2]: *** [CMakeFiles/mpc_rbt_student.dir/build.make:76: CMakeFiles/mpc_rbt_student.dir/src/KeyboardControl.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/mpc_rbt_student.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

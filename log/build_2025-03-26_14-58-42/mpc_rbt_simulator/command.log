@@ -1,0 +1,6 @@
+Invoking command in '/home/student/238362_tm/build/mpc_rbt_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/student/238362_tm/src/mpc-rbt-simulator -DCMAKE_INSTALL_PREFIX=/home/student/238362_tm/install/mpc_rbt_simulator
+Invoked command in '/home/student/238362_tm/build/mpc_rbt_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/student/238362_tm/src/mpc-rbt-simulator -DCMAKE_INSTALL_PREFIX=/home/student/238362_tm/install/mpc_rbt_simulator
+Invoking command in '/home/student/238362_tm/build/mpc_rbt_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/238362_tm/build/mpc_rbt_simulator -- -j8 -l8
+Invoked command in '/home/student/238362_tm/build/mpc_rbt_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/238362_tm/build/mpc_rbt_simulator -- -j8 -l8
+Invoking command in '/home/student/238362_tm/build/mpc_rbt_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/238362_tm/build/mpc_rbt_simulator
+Invoked command in '/home/student/238362_tm/build/mpc_rbt_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/238362_tm/build/mpc_rbt_simulator

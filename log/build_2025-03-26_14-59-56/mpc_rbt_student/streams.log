@@ -1,0 +1,64 @@
+[0.005s] Invoking command in '/home/student/238362_tm/build/mpc_rbt_student': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/student/238362_tm/src/mpc-rbt-student -DCMAKE_INSTALL_PREFIX=/home/student/238362_tm/install/mpc_rbt_student
+[0.044s] -- The C compiler identification is GNU 11.4.0
+[0.076s] -- The CXX compiler identification is GNU 11.4.0
+[0.082s] -- Detecting C compiler ABI info
+[0.131s] -- Detecting C compiler ABI info - done
+[0.136s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.136s] -- Detecting C compile features
+[0.136s] -- Detecting C compile features - done
+[0.138s] -- Detecting CXX compiler ABI info
+[0.182s] -- Detecting CXX compiler ABI info - done
+[0.187s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.187s] -- Detecting CXX compile features
+[0.187s] -- Detecting CXX compile features - done
+[0.188s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.281s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.337s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.366s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.368s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.373s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.379s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.388s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.412s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.414s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.458s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.473s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.495s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.499s] -- Looking for pthread.h
+[0.542s] -- Looking for pthread.h - found
+[0.543s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.582s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.582s] -- Found Threads: TRUE  
+[0.611s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.660s] -- Configuring done
+[0.666s] -- Generating done
+[0.668s] -- Build files have been written to: /home/student/238362_tm/build/mpc_rbt_student
+[0.674s] Invoked command in '/home/student/238362_tm/build/mpc_rbt_student' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/student/238362_tm/src/mpc-rbt-student -DCMAKE_INSTALL_PREFIX=/home/student/238362_tm/install/mpc_rbt_student
+[0.675s] Invoking command in '/home/student/238362_tm/build/mpc_rbt_student': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/238362_tm/build/mpc_rbt_student -- -j8 -l8
+[0.697s] [35m[1mConsolidate compiler generated dependencies of target mpc_rbt_student[0m
+[0.705s] [ 25%] [32mBuilding CXX object CMakeFiles/mpc_rbt_student.dir/src/KeyboardControl.cpp.o[0m
+[1.965s] In file included from [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:8[m[K:
+[1.965s] [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/../include/KeyboardControl.hpp:22:5:[m[K [01;31m[Kerror: [m[K‘[01m[Krclcpp[m[K’ does not name a type
+[1.965s]    22 |     [01;31m[Krclcpp[m[K:Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_publisher_;
+[1.965s]       |     [01;31m[K^~~~~~[m[K
+[1.970s] [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:[m[K In constructor ‘[01m[KKeyboardControlNode::KeyboardControlNode()[m[K’:
+[1.970s] [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:16:3:[m[K [01;31m[Kerror: [m[K‘[01m[Ktwist_publisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Kcount_publishers[m[K’?
+[1.970s]    16 |   [01;31m[Ktwist_publisher_[m[K = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 1);
+[1.970s]       |   [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[1.970s]       |   [32m[Kcount_publishers[m[K
+[1.973s] [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:18:74:[m[K [01;31m[Kerror: [m[K‘[01m[Ktimer_callback[m[K’ is not a member of ‘[01m[KKeyboardControlNode[m[K’
+[1.973s]    18 |   timer_ = this->create_wall_timer(10ms, std::bind(&KeyboardControlNode::[01;31m[Ktimer_callback[m[K, this));
+[1.973s]       |                                                                          [01;31m[K^~~~~~~~~~~~~~[m[K
+[1.976s] [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:24:3:[m[K [01;31m[Kerror: [m[K‘[01m[Ktcsetsttr[m[K’ was not declared in this scope; did you mean ‘[01m[Ktcsetattr[m[K’?
+[1.976s]    24 |   [01;31m[Ktcsetsttr[m[K(STDIN_FILENO, TCSANOW, &new_termios);
+[1.976s]       |   [01;31m[K^~~~~~~~~[m[K
+[1.976s]       |   [32m[Ktcsetattr[m[K
+[1.981s] [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:[m[K In member function ‘[01m[Kvoid KeyboardControlNode::timerCallback()[m[K’:
+[1.981s] [01m[K/home/student/238362_tm/src/mpc-rbt-student/src/KeyboardControl.cpp:76:15:[m[K [01;31m[Kerror: [m[K‘[01m[Ktwist_publisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Kcount_publishers[m[K’?
+[1.982s]    76 |               [01;31m[Ktwist_publisher_[m[K->publish(twist);
+[1.982s]       |               [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[1.982s]       |               [32m[Kcount_publishers[m[K
+[2.344s] gmake[2]: *** [CMakeFiles/mpc_rbt_student.dir/build.make:76: CMakeFiles/mpc_rbt_student.dir/src/KeyboardControl.cpp.o] Error 1
+[2.344s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/mpc_rbt_student.dir/all] Error 2
+[2.345s] gmake: *** [Makefile:146: all] Error 2
+[2.346s] Invoked command in '/home/student/238362_tm/build/mpc_rbt_student' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/238362_tm/build/mpc_rbt_student -- -j8 -l8
