@@ -1,4 +1,5 @@
 #include "mpc_rbt_simulator/RobotConfig.hpp"
+#include "Localization.hpp"
 
 LocalizationNode::LocalizationNode() : 
     rclcpp::Node("localization_node"), 
@@ -7,13 +8,17 @@ LocalizationNode::LocalizationNode() :
     // Odometry message initialization
     odometry_.header.frame_id = "map";
     odometry_.child_frame_id = "base_link";
+    odometry_.pose.pose.position.x = 0.5;
+    odometry_.pose.pose.position.y = 2.0;
+
     // add code here
 
-    // Subscriber for joint_states
-    // add code here
+  // Subscriber pro zprávy joint_states
+  joint_subscriber_ = this->create_subscription<sensor_msgs::msg::JointState>(
+      "joint_states", 10, std::bind(&LocalizationNode::jointCallback, this, std::placeholders::_1));
 
-    // Publisher for odometry
-    // add code here
+  // Publisher pro odometrické zprávy
+  odometry_publisher_ = this->create_publisher<nav_msgs::msg::Odometry>("odom", 10);
 
     // tf_briadcaster 
     tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
@@ -22,52 +27,92 @@ LocalizationNode::LocalizationNode() :
 }
 
 void LocalizationNode::jointCallback(const sensor_msgs::msg::JointState & msg) {
-    // add code here
+  auto current_time = this->get_clock()->now();
+  double dt = (current_time - last_time_).seconds();
+  last_time_ = current_time;
 
+  double left_wheel_vel = 0.0;
+  double right_wheel_vel = 0.0;
 
-    // ********
-    // * Help *
-    // ********
-    /*
-    auto current_time = this->get_clock()->now();
+  for (size_t i = 0; i < msg.name.size(); ++i) {
+    if (msg.name[i] == "wheel_left_joint") {
+      left_wheel_vel = msg.velocity[i];
+      if(!msg.velocity[i])
+        left_wheel_vel = 0.0;
+  } else if (msg.name[i] == "wheel_right_joint") {
 
-    updateOdometry(msg.velocity[0], msg.velocity[1], dt);
-    publishOdometry();
-    publishTransform();
-    */
+    right_wheel_vel = msg.velocity[i];
+    if(!msg.velocity[i])
+        left_wheel_vel = 0.0;
+      
+  }
+    
+  }
+
+  // Aktualizace odometrie na základě rychlostí kol
+  if(msg.velocity.empty())
+    return;
+  updateOdometry(left_wheel_vel, right_wheel_vel, dt);
+  publishOdometry();
+  publishTransform();
 }
 
 void LocalizationNode::updateOdometry(double left_wheel_vel, double right_wheel_vel, double dt) {
-    // add code here
+  // Parametry robota
+  double wheel_base = robot_config::HALF_DISTANCE_BETWEEN_WHEELS*2;  // Vzdálenost mezi koly
+  double radius = robot_config::WHEEL_RADIUS;  // Poloměr kola
 
-    // ********
-    // * Help *
-    // ********
-    /*
-    double linear =  ;
-    double angular = ;  //robot_config::HALF_DISTANCE_BETWEEN_WHEELS
+  // Vypočítáme lineární a úhlovou rychlost
+  double linear_velocity = radius * (left_wheel_vel + right_wheel_vel) / 2.0;
+  double angular_velocity = radius * (right_wheel_vel - left_wheel_vel) / wheel_base;
 
-    tf2::Quaternion tf_quat;
-    tf2::fromMsg(odometry_.pose.pose.orientation, tf_quat);
-    double roll, pitch, theta;
-    tf2::Matrix3x3(tf_quat).getRPY(roll, pitch, theta);
+  // Získání aktuální orientace robota
+  tf2::Quaternion q;
+  tf2::fromMsg(odometry_.pose.pose.orientation, q);
 
-    theta = std::atan2(std::sin(theta), std::cos(theta));
+  // Získání roll, pitch, theta (yaw)
+  double roll, pitch, theta;
+  tf2::Matrix3x3(q).getRPY(roll, pitch, theta);
 
-    tf2::Quaternion q;
-    q.setRPY(0, 0, 0);
-    */
+  // Aktualizace pozice robota (x, y) a orientace (theta)
+  double delta_x = linear_velocity * dt * cos(theta);
+  double delta_y = linear_velocity * dt * sin(theta);
+  odometry_.pose.pose.position.x += delta_x;
+  odometry_.pose.pose.position.y += delta_y;
+
+  // Aktualizace orientace (yaw)
+  double delta_theta = angular_velocity * dt;
+  q.setRPY(0, 0, theta + delta_theta);
+  odometry_.pose.pose.orientation = tf2::toMsg(q);
+
+  // Aktualizace lineární a úhlové rychlosti
+  odometry_.twist.twist.linear.x = linear_velocity;
+  odometry_.twist.twist.angular.z = angular_velocity;
 }
 
 void LocalizationNode::publishOdometry() {
-    // add code here
+  // Publikování zprávy o odometrii na téma "odom"
+  odometry_.header.stamp = this->get_clock()->now();
+  odometry_publisher_->publish(odometry_);
 }
 
 void LocalizationNode::publishTransform() {
-    // add code here
-    
-    // ********
-    // * Help *
-    // ********
-    //tf_broadcaster_->sendTransform(t);
+  // Vytvoření a publikování transformace mezi "odom" a "base_link"
+  geometry_msgs::msg::TransformStamped transform_stamped;
+  transform_stamped.header.stamp = this->get_clock()->now();
+  transform_stamped.header.frame_id = "map";
+  transform_stamped.child_frame_id = "base_link";
+  transform_stamped.transform.translation.x = odometry_.pose.pose.position.x;
+  transform_stamped.transform.translation.y = odometry_.pose.pose.position.y;
+  transform_stamped.transform.translation.z = 0.0;
+  transform_stamped.transform.rotation = odometry_.pose.pose.orientation;
+  /*if (std::isnan(odometry_.pose.pose.orientation.x) || 
+  std::isnan(odometry_.pose.pose.orientation.y) || 
+  std::isnan(odometry_.pose.pose.orientation.z) || 
+  std::isnan(odometry_.pose.pose.orientation.w)) {
+  RCLCPP_WARN(get_logger(), "Ignoring transform due to NaN in quaternion.");
+  return;  // Pokud je quaternion na NaN, ignorujte publikování
+  }*/
+  // Publikování transformace
+  tf_broadcaster_->sendTransform(transform_stamped);
 }
