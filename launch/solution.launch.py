@@ -44,17 +44,26 @@ def generate_launch_description():
                     name='localization_node',
                     output='screen'
                 ),
+                
                 Node(
                     package='mpc_rbt_student',
-                    executable='keyboard_control',
-                    name='keyboard_control',
+                    executable='planning_node',
+                    name='planning_node',
+                    output='screen'
+                ),
+
+                Node(
+                    package='mpc_rbt_student',
+                    executable='motion_control_node',
+                    name='motion_control_node',
                     output='screen'
                 ),
                 ExecuteProcess(
-                    cmd=['gnome-terminal', '--', 'ros2', 'run', 'mpc_rbt_student', 'keyboard_control'],
-                    name='keyboard_control_terminal',
+                    cmd=['gnome-terminal', '--', 'ros2', 'run', 'mpc_rbt_student', 'motion_control_node'],
+                    name='motion_control_terminal',
                     output='screen'
-                ),
+                )
+                
             ]
         )
     ])

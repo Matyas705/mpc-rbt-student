@@ -19,6 +19,9 @@
 class MotionControlNode : public rclcpp::Node {
     public:
         MotionControlNode();
+        double prev_angle_error_ = 0.0;
+        double angle_error_sum_ = 0.0;
+
     
     private:
         // Parameters

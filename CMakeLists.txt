@@ -14,6 +14,7 @@ find_package(tf2_ros REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(nav2_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
 include_directories(PUBLIC
@@ -28,12 +29,15 @@ set(dependencies
   tf2
   sensor_msgs
   nav_msgs
+  nav2_msgs
   tf2_geometry_msgs
 )
 
 add_library(${PROJECT_NAME} SHARED
   src/KeyboardControl.cpp
   src/Localization.cpp
+  src/Planning.cpp
+  src/MotionControl.cpp
 )
 install(DIRECTORY launch rviz
 DESTINATION share/${PROJECT_NAME}/)
@@ -47,10 +51,16 @@ install(TARGETS ${PROJECT_NAME}
 
 add_executable(keyboard_control src/keyboard_control_node.cpp)
 add_executable(localization_node src/localization_node.cpp)
+add_executable(planning_node src/planning_node.cpp)
+add_executable(motion_control_node src/motion_control_node.cpp)
 target_link_libraries(keyboard_control ${PROJECT_NAME})
 target_link_libraries(localization_node ${PROJECT_NAME})
+target_link_libraries(planning_node ${PROJECT_NAME})
+target_link_libraries(motion_control_node ${PROJECT_NAME})
 install(TARGETS keyboard_control DESTINATION lib/${PROJECT_NAME})
 install(TARGETS localization_node DESTINATION lib/${PROJECT_NAME})
+install(TARGETS planning_node DESTINATION lib/${PROJECT_NAME})
+install(TARGETS motion_control_node DESTINATION lib/${PROJECT_NAME})
 
 
 # ROS exports

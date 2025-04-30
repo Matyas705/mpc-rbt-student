@@ -4,11 +4,15 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
+#include <memory>
+#include <cmath> 
 
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/occupancy_grid.hpp"
 #include "nav_msgs/srv/get_map.hpp"
 #include "nav_msgs/srv/get_plan.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
+#include "nav_msgs/msg/path.hpp"
 
 // A-star cell structure
 struct Cell {
@@ -17,7 +21,16 @@ struct Cell {
     std::shared_ptr<Cell> parent;
 
     Cell(int c, int r);
+    
 };
+bool operator<(const Cell &a, const Cell &b)
+{
+    return a.f < b.f;
+}
+bool operator==(const Cell &a, const Cell &b)
+{
+    return (a.x == b.x) && (a.y == b.y);
+}
 
 class PlanningNode : public rclcpp::Node {
 public:
